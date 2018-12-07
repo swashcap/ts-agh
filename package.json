@@ -1,0 +1,40 @@
+{
+  "name": "ts-agh",
+  "version": "1.0.0",
+  "description": "A TypeScript Apollo GraphQL Hapi server",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "prettier": "prettier --write 'src/**/*.ts'",
+    "start": "node -r dontenv/config build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swashcap/ts-agh.git"
+  },
+  "keywords": [
+    "hapi",
+    "apollo",
+    "graphql"
+  ],
+  "author": "Cory Reed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/swashcap/ts-agh/issues"
+  },
+  "homepage": "https://github.com/swashcap/ts-agh#readme",
+  "devDependencies": {
+    "@types/graphql": "^14.0.3",
+    "@types/hapi": "^17.8.0",
+    "prettier": "^1.15.3",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "apollo-server-hapi": "^2.2.6",
+    "dotenv": "^6.2.0",
+    "graphql": "^14.0.2",
+    "hapi": "^17.8.1"
+  },
+  "private": true
+}
