@@ -7,7 +7,7 @@
     "build": "tsc",
     "pretest": "npm run build",
     "prettier": "prettier --write '*.js' 'src/**/*.ts'",
-    "start": "node -r dontenv/config build/index.js",
+    "start": "node -r dotenv/config build/index.js",
     "test": "ava"
   },
   "repository": {
