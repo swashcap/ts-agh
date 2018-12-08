@@ -21,3 +21,14 @@ A [TypeScript](https://www.typescriptlang.org) [Apollo GraphQL Hapi server](http
   [good](https://github.com/hapijs/good)
 * [Husky](https://github.com/typicode/husky) installs commit hooks, including
   testing and [commitlint](https://marionebl.github.io/commitlint/#/)
+
+## Docker
+
+```shell
+# Build an image
+docker build -t swashcap/ts-agh .
+
+# Run a container
+docker run --rm -it -p 4000:4000 swashcap/ts-agh
+```
+
