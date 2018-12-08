@@ -1,4 +1,5 @@
 import Hapi from "hapi";
+import good from "good";
 import { ApolloServer } from "apollo-server-hapi";
 
 import resolvers from "./resolvers";
@@ -19,12 +20,37 @@ const getServer = () => {
   return server
     .applyMiddleware({ app })
     .then(() => server.installSubscriptionHandlers(app.listener))
+    .then(() => {
+      if (process.env.NODE_ENV !== "test") {
+        return app.register({
+          options: {
+            reporters: {
+              myConsoleReporter: [
+                {
+                  module: "good-squeeze",
+                  name: "Squeeze",
+                  args: [{ log: "*", response: "*" }]
+                },
+                {
+                  module: "good-console"
+                },
+                "stdout"
+              ]
+            }
+          },
+          plugin: good
+        });
+      }
+    })
     .then(() => ({ app, server }));
 };
 
 if (!module.parent) {
   getServer()
-    .then(({ app }) => app.start())
+    .then(({ app }) => Promise.all([app, app.start()]))
+    .then(([app]) => {
+      console.log(`Server started at ${app.info.uri}`);
+    })
     .catch(error => {
       console.error(error);
       process.exit(1);
