@@ -2,7 +2,7 @@
   "name": "ts-agh",
   "version": "1.0.0",
   "description": "A TypeScript Apollo GraphQL Hapi server",
-  "main": "src/index.ts",
+  "main": "build/index.js",
   "scripts": {
     "build": "tsc",
     "pretest": "npm run build",
