@@ -1,8 +1,14 @@
 import { gql } from "apollo-server-hapi";
 
-const typeDefs = gql`
-Query {
+export const schema = `
+schema {
+  query: Query
+ }
+
+type Query {
   hello: String!
 }`;
 
-export default typeDefs;
+export default gql`
+  ${schema}
+`;
